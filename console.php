@@ -166,7 +166,7 @@ echo "开始创建新的连接"
 ssh -NT -D 10000 root@$ipAddress
 ps -ef | grep ssh | grep -v grep
 EOF;
-        file_put_contents('con_vpn_hk.sh', $str);
+        file_put_contents(__DIR__ . '/con_vpn_hk.sh', $str);
 
     }
 
