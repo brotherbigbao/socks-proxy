@@ -153,7 +153,7 @@ class Aliyun{
     private function updateShell($ipAddress) {
         $str = <<<EOF
 #!/bin/bash
-vpnpid=$(ps -ef | grep "ssh -NT -D" | grep -v grep | awk '{print $2}')
+vpnpid=$(ps -ef | grep "ssh -NT" | grep -v grep | awk '{print $2}')
 if test \$vpnpid
 then
 echo "发现已有端口转发: \$vpnpid."
