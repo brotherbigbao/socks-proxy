@@ -1,0 +1,104 @@
+stdClass Object
+(
+    [PageNumber] => 1
+    [TotalCount] => 1
+    [PageSize] => 10
+    [RequestId] => 044C7A6B-B2E9-4D1E-8C6F-B95F1D350B42
+    [Instances] => stdClass Object
+        (
+            [Instance] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [InnerIpAddress] => stdClass Object
+                                (
+                                    [IpAddress] => Array
+                                        (
+                                            [0] => 10.165.58.141
+                                        )
+
+                                )
+
+                            [ImageId] => ubuntu_160401_64_40G_cloudinit_20161115.vhd
+                            [InstanceTypeFamily] => ecs.t1
+                            [VlanId] =>
+                            [InstanceId] => i-28w08tkqs
+                            [EipAddress] => stdClass Object
+                                (
+                                    [IpAddress] =>
+                                    [AllocationId] =>
+                                    [InternetChargeType] =>
+                                )
+
+                            [InternetMaxBandwidthIn] => -1
+                            [ZoneId] => cn-qingdao-b
+                            [InternetChargeType] => PayByBandwidth
+                            [SpotStrategy] => NoSpot
+                            [SerialNumber] => 5a10f940-62dd-4646-96f1-eb5c11d68cc0
+                            [IoOptimized] =>
+                            [Memory] => 512
+                            [Cpu] => 1
+                            [VpcAttributes] => stdClass Object
+                                (
+                                    [NatIpAddress] =>
+                                    [PrivateIpAddress] => stdClass Object
+                                        (
+                                            [IpAddress] => Array
+                                                (
+                                                )
+
+                                        )
+
+                                    [VSwitchId] =>
+                                    [VpcId] =>
+                                )
+
+                            [InternetMaxBandwidthOut] => 1
+                            [DeviceAvailable] => 1
+                            [SecurityGroupIds] => stdClass Object
+                                (
+                                    [SecurityGroupId] => Array
+                                        (
+                                            [0] => sg-288ke6hjy
+                                        )
+
+                                )
+
+                            [AutoReleaseTime] =>
+                            [InstanceName] => iZ28w08tkqsZ
+                            [Description] =>
+                            [InstanceNetworkType] => classic
+                            [PublicIpAddress] => stdClass Object
+                                (
+                                    [IpAddress] => Array
+                                        (
+                                            [0] => 121.42.52.17
+                                        )
+
+                                )
+
+                            [HostName] => iZ28w08tkqsZ
+                            [InstanceType] => ecs.t1.xsmall
+                            [CreationTime] => 2014-11-24T13:06Z
+                            [Status] => Running
+                            [ClusterId] =>
+                            [RegionId] => cn-qingdao
+                            [GPUSpec] =>
+                            [OperationLocks] => stdClass Object
+                                (
+                                    [LockReason] => Array
+                                        (
+                                        )
+
+                                )
+
+                            [InstanceChargeType] => PrePaid
+                            [GPUAmount] => 0
+                            [ExpiredTime] => 2018-02-13T16:00Z
+                        )
+
+                )
+
+        )
+
+)

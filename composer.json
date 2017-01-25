@@ -1,0 +1,14 @@
+{
+    "name": "liuyibao/aliyun",
+    "description": "aliyun service fast control",
+    "type": "project",
+    "require": {
+        "league/climate": "^3.2"
+    },
+    "authors": [
+        {
+            "name": "Yibao Liu",
+            "email": "734988964@qq.com"
+        }
+    ]
+}
