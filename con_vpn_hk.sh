@@ -9,5 +9,5 @@ else
 echo "没有发现已存在ssh端口"
 fi
 echo "开始创建新的连接"
-ssh -NT -D 10000 root@47.52.2.127
+ssh -NT -D 10000 root@47.52.3.114
 ps -ef | grep ssh | grep -v grep
