@@ -4,9 +4,13 @@
 
 使用 aliyun-socks5-listen 创建本地代理端口
 
+### PHP要求
+
+PHP 5.3+
+
 ### 安装说明
 
-1. 将本项目clone到本地任一目录
+1. 将本项目clone到本地任一目录或直接下载[zip压缩包](https://github.com/liuyibao/aliyun/archive/v1.0.zip)
 ```
 git clone https://github.com/liuyibao/aliyun.git
 
