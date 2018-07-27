@@ -46,3 +46,6 @@ git clone https://github.com/aliyun/aliyun-openapi-php-sdk.git
 #创建本地socks5代理端口 默认端口号是10000 需要变更请手动更改文件aliyun-socks5-listen
 ./aliyun-socks5-listen
 ```
+
+
+> 命令执行过程中可能会存在php notice错误，是aliyun sdk的问题，可以忽略
