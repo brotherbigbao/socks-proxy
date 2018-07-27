@@ -163,7 +163,7 @@ else
 echo "没有发现已存在ssh端口"
 fi
 echo "开始创建新的连接"
-ssh -NT -D 10000 root@$ipAddress
+ssh -NTf -D 10000 root@$ipAddress
 ps -ef | grep ssh | grep -v grep
 EOF;
         file_put_contents(__DIR__ . '/aliyun-socks5-listen', $str);
