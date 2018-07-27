@@ -4,16 +4,6 @@
 
 使用 aliyun-socks5-listen 创建本地代理端口
 
-mac系统在 设置 网络 高级设置 代理 里配置socks代理， 代理地址是127.0.0.1, 端口是10000
-
-或者在Chrome浏览器里装一个插件，SwitchyOmega, 同样是配置socks代理，仅供Chrome使用
-
-Ubuntu或其它linux下类似
-
-命令行下如果使用最好装一下privoxy,文档后面会详细写
-
-目前不支持Windows, windows下配置比较麻烦
-
 ### PHP要求
 
 PHP 5.3+
