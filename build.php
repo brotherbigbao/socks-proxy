@@ -13,7 +13,7 @@ if (file_exists($fileName)) {
 
 $phar = new Phar(__DIR__ . '/' . $fileName);
 //$phar->buildFromDirectory(__DIR__, '/^(?!(.*git|.*idea))(.*)$/i');
-$phar->buildFromDirectory(__DIR__, '/^(?!(.*\.git|.*\.idea))(.*)$/i');
+$phar->buildFromDirectory('.', '/^(?!(.*\.git|.*\.idea))(.*)$/i');
 $phar->delete('build.php');
 $phar->delete('extract.php');
 
