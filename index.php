@@ -11,6 +11,8 @@ include_once __DIR__ . '/sdk/Aliyun.php';
 
 define('APP_PATH', __DIR__);
 
+//echo PHP_OS, "\n"; exit;
+
 $config = include __DIR__ . '/config/config.php';
 $aliyun = new Aliyun($config, $argv);
 $aliyun->init();

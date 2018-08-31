@@ -16,6 +16,13 @@ $phar = new Phar(__DIR__ . '/' . $fileName);
 $phar->buildFromDirectory(__DIR__, '/^(?!(.*\.git|.*\.idea))(.*)$/i');
 $phar->delete('build.php');
 $phar->delete('extract.php');
-$phar->setDefaultStub('index.php');
+
+//$phar->setDefaultStub('index.php');
+$defStub = Phar::createDefaultStub('index.php');
+$phar->setStub("#!/usr/bin/env php\n$defStub");
+
+$phar->compressFiles(Phar::BZ2);
+
+chmod('socks-proxy.phar', 0755);
 
 echo "Finished!\n";
