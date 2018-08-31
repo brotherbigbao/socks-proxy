@@ -10,7 +10,7 @@ use League\CLImate\CLImate;
 include_once __DIR__ . '/vendor/autoload.php';
 $config = include __DIR__ . '/config/config.php';
 
-include_once __DIR__ . '/../aliyun-openapi-php-sdk/aliyun-php-sdk-core/Config.php';
+include_once __DIR__ . '/sdk/aliyun-openapi-php-sdk/aliyun-php-sdk-core/Config.php';
 use Ecs\Request\V20140526 as Ecs;
 
 //$request = new Ecs\DescribeRegionsRequest();
