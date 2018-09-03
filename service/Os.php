@@ -12,9 +12,28 @@ class Os
 {
     const OSX = 'Darwin';
     const LINUX = 'Linux';
+    const NOT_SUPPORT_OS = 'not_support_os';
 
-    public function type()
+    public static function getType()
     {
+        if (!in_array(PHP_OS, [self::OSX, self::LINUX])) {
+            return self::NOT_SUPPORT_OS;
+        }
+        return PHP_OS;
+    }
 
+    public static function getPath()
+    {
+        return '~/.socks-proxy/';
+    }
+
+    public static function getBinPath()
+    {
+        return '~/.socks-proxy/bin/socks-proxy';
+    }
+
+    public static function getConfigPath()
+    {
+        return '~/.socks-proxy/config.php';
     }
 }
