@@ -208,4 +208,20 @@ EOF;
     //$request->setMethod("GET");
     //$response = $client->getAcsResponse($request);
     //print_r($response);exit;
+
+    public static function getConfigTemplate()
+    {
+        $template = <<<EOF
+<?php
+return [
+    'regionId' => 'cn-hongkong',//区域 cn-qingdao,cn-hongkong
+    'key' => '%s',//阿里控制台上的key
+    'secret' => '%s',//阿里控制台上的secret
+    'imageId'=> 'ubuntu_160401_64_40G_cloudinit_20161115.vhd',//服务器镜像, 建议默认此值
+    'instanceType' => 'ecs.n1.tiny',//ecs.n1.tiny, ecs.t1.small
+    'password' => '%s'//给创建的服务器设定密码
+];
+EOF;
+        return $template;
+    }
 }
