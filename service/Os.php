@@ -24,16 +24,16 @@ class Os
 
     public static function getPath()
     {
-        return '~/.socks-proxy/';
+        return getenv('HOME').'/.socks-proxy/';
     }
 
     public static function getBinPath()
     {
-        return '~/.socks-proxy/bin/socks-proxy';
+        return getenv('HOME').'/.socks-proxy/bin/socks-proxy';
     }
 
     public static function getConfigPath()
     {
-        return '~/.socks-proxy/config.php';
+        return getenv('HOME').'/.socks-proxy/config.php';
     }
 }
