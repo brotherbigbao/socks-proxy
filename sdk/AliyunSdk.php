@@ -108,7 +108,7 @@ class AliyunSdk implements \sdk\SdkInterface {
         $response = $this->client->getAcsResponse($request);
         if($response->IpAddress){
             $this->updateShell($response->IpAddress);
-            $this->cmd->out(sprintf('Successful public ip address: %s, have update aliyun-socks5-listen, Please use ./aliyun-socks-listen start listen', $response->IpAddress));
+            $this->cmd->out(sprintf('Successful public ip address: %s', $response->IpAddress));
             return $response->IpAddress;
         }else{
             print_r($response);
