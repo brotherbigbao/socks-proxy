@@ -23,6 +23,6 @@ $phar->setStub("#!/usr/bin/env php\n$defStub");
 
 $phar->compressFiles(Phar::BZ2);
 
-chmod('socks-proxy.phar', 0755);
+chmod('socks-proxy.phar', 0777);
 
 echo "Finished!\n";
