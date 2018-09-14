@@ -8,9 +8,13 @@ PHP 5.3+ (Mac已默认安装PHP, Ubuntu用户请使用apt安装php: apt install 
 
 ### 安装说明
 
-1.下载socks-proxy.phar
+1.下载socks-proxy.phar并添加执行权限
 
 [socks-proxy.phar](http://openpublic.oss-cn-shanghai.aliyuncs.com/2018/socks-proxy.phar)
+
+```
+chmod u+x ./socks-proxy.phar
+```
 
 2.配置阿里云key, secret 及 服务器默认ROOT密码
 
