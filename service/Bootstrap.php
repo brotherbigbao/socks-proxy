@@ -27,7 +27,9 @@ class Bootstrap
         $configArray = include Os::getConfigFilePath();
         $cloudService = new AliyunSdk($configArray, Os::getBinFilePath());
         if(count($argv) < 2){
-            $action = 'list';
+            $cmd = new CLImate();
+            $cmd->green('请使用参数 list|create|stop|destroy|config');
+            exit;
         } else {
             $action = $argv[1];
         }
