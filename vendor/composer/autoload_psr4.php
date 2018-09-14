@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'service\\' => array($baseDir . '/service'),
+    'sdk\\' => array($baseDir . '/sdk'),
     'Seld\\CliPrompt\\' => array($vendorDir . '/seld/cli-prompt/src'),
     'League\\CLImate\\' => array($vendorDir . '/league/climate/src'),
 );

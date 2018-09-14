@@ -13,7 +13,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "service\\": "service/"
+            "service\\": "service/",
+            "sdk\\": "sdk/"
         }
     }
 }

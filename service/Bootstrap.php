@@ -9,20 +9,42 @@
 namespace service;
 
 use League\CLImate\CLImate;
+use AliyunSdk;
+
+include_once APP_PATH . '/sdk/AliyunSdk.php';
 
 class Bootstrap
 {
-    public static function start()
+    public static function start(array $argv)
     {
         if (Os::getType() == Os::NOT_SUPPORT_OS) {
             echo "现在仅支持Linux、OSX系统！\n";
             exit(0);
         }
-        self::initDir();
+        self::checkDir();
         self::checkConfigFile();
+
+        $configArray = include Os::getConfigFilePath();
+        $cloudService = new AliyunSdk($configArray, Os::getBinFilePath());
+        if(count($argv) < 2){
+            $action = 'list';
+        } else {
+            $action = $argv[1];
+        }
+        switch ($action) {
+            case 'list' : $cloudService->ecsList(); break;
+            case 'create' : $cloudService->create(); break;
+            case 'stop' : $cloudService->stop(); break;
+            case 'destroy' : $cloudService->destroy(); break;
+            case 'config' : self::createConfigFile(); break;
+            case 'listen' : self::listen(); break;
+            default :
+                $cmd = new CLImate();
+                $cmd->red('参数错误，请输入: list|create|stop|destroy|config');
+        }
     }
 
-    protected static function initDir()
+    protected static function checkDir()
     {
         if (!file_exists(Os::getPath())) {
             mkdir(Os::getPath(), 0777, true);
@@ -31,7 +53,7 @@ class Bootstrap
 
     protected static function checkConfigFile()
     {
-        if (!file_exists(Os::getConfigPath())) {
+        if (!file_exists(Os::getConfigFilePath())) {
             self::createConfigFile();
         }
     }
@@ -53,7 +75,12 @@ class Bootstrap
         echo $secret,"\n";
         echo $password,"\n";
 
-        $configFileContent = sprintf(\Aliyun::getConfigTemplate(), $key, $secret, $password);
-        file_put_contents(Os::getConfigPath(), $configFileContent);
+        $configFileContent = sprintf(AliyunSdk::getConfigTemplate(), $key, $secret, $password);
+        file_put_contents(Os::getConfigFilePath(), $configFileContent);
+    }
+
+    protected static function listen()
+    {
+        system(Os::getBinFilePath());
     }
 }

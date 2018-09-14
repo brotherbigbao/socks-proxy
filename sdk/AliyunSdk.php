@@ -7,43 +7,31 @@
  */
 include_once __DIR__ . '/aliyun-openapi-php-sdk/aliyun-php-sdk-core/Config.php';
 
+
 use Ecs\Request\V20140526 as Ecs;
 use League\CLImate\CLImate;
 
-class Aliyun{
+class AliyunSdk implements \sdk\SdkInterface {
     private $config = [];
-    private $argv = [];
     private $cmd = null;
     private $client = null;
-    public function __construct(array $config, array $argv)
+    private $binFilePath = null;
+
+    public function __construct(array $config, $binFilePath)
     {
         if(!$config || !is_array($config)){
-            throw new Exception('Not found config.');
+            throw new \Exception('Not found config.');
         }
         $this->config = $config;
-        $this->argv = $argv;
         $this->cmd = new CLImate();
+
         $iClientProfile = DefaultProfile::getProfile($config['regionId'], $config['key'], $config['secret']);
         $this->client = new DefaultAcsClient($iClientProfile);
+
+        $this->binFilePath = $binFilePath;
     }
 
-    public function init(){
-        if(count($this->argv) < 2){
-            $action = 'list';
-        } else {
-            $action = $this->argv[1];
-        }
-
-        switch ($action) {
-            case 'list' : $this->ecsList(); break;
-            case 'create' : $this->create(); break;
-            case 'stop' : $this->stop(); break;
-            case 'destroy' : $this->destroy(); break;
-            default : $this->cmd->red('Need action.');
-        }
-    }
-
-    private function ecsList($return = false){
+    public function ecsList($return = false){
         $request = new Ecs\DescribeInstancesRequest();
         $request->setMethod("GET");
         $response = $this->client->getAcsResponse($request);
@@ -74,7 +62,7 @@ class Aliyun{
         }
     }
 
-    private function create(){
+    public function create(){
         $ecsList = $this->ecsList(true);
         if($ecsList){
             $this->cmd->table($ecsList);
@@ -93,7 +81,7 @@ class Aliyun{
         $request->setSystemDiskCategory('cloud_efficiency');
         $request->setMethod("GET");
         $response = $this->client->getAcsResponse($request);
-        if($response instanceof stdClass && $response->InstanceId){
+        if($response instanceof \stdClass && $response->InstanceId){
             $this->cmd->out(sprintf("New instance: %s", $response->InstanceId));
             $this->cmd->out("Start allocate public ip address ... ");
             $ip = $this->allocatePublicIpAddress($response->InstanceId);
@@ -154,12 +142,14 @@ fi
 echo "开始创建新的连接"
 ssh -NTf -D 10000 root@$ipAddress
 ps -ef | grep ssh | grep -v grep
+echo "已执行成功, 请Ctrl+C退出此程序, 端口会在后台监听，如果网络断开重新执行listen命令即可"
 EOF;
-        file_put_contents(APP_PATH . '/aliyun-socks5-listen', $str);
+        file_put_contents($this->binFilePath, $str);
+        chmod($this->binFilePath, 0777);
 
     }
 
-    private function stop(){
+    public function stop(){
         $ecsList = $this->ecsList(true);
         if(empty($ecsList)){
             $this->cmd->green('Not found any ecs.');
@@ -173,14 +163,14 @@ EOF;
                 $this->cmd->out(sprintf("Start stop %s ...", $ecs['InstanceId']));
                 $request->setInstanceId($ecs['InstanceId']);
                 $response = $this->client->getAcsResponse($request);
-                if($response instanceof stdClass && $response->RequestId){
+                if($response instanceof \stdClass && $response->RequestId){
                     $this->cmd->out("Successful stop.");
                 }
             }
         }
     }
 
-    private function destroy(){
+    public function destroy(){
         $ecsList = $this->ecsList(true);
         if(empty($ecsList)){
             $this->cmd->green('Not found any ecs.');

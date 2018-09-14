@@ -10,6 +10,7 @@ class ComposerStaticInit73ee111da5023933dc0f66512e0c909d
         's' => 
         array (
             'service\\' => 8,
+            'sdk\\' => 4,
         ),
         'S' => 
         array (
@@ -25,6 +26,10 @@ class ComposerStaticInit73ee111da5023933dc0f66512e0c909d
         'service\\' => 
         array (
             0 => __DIR__ . '/../..' . '/service',
+        ),
+        'sdk\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/sdk',
         ),
         'Seld\\CliPrompt\\' => 
         array (

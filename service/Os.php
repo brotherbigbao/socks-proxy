@@ -27,12 +27,12 @@ class Os
         return getenv('HOME').'/.socks-proxy/';
     }
 
-    public static function getBinPath()
+    public static function getBinFilePath()
     {
-        return getenv('HOME').'/.socks-proxy/bin/socks-proxy';
+        return getenv('HOME').'/.socks-proxy/socks-proxy';
     }
 
-    public static function getConfigPath()
+    public static function getConfigFilePath()
     {
         return getenv('HOME').'/.socks-proxy/config.php';
     }

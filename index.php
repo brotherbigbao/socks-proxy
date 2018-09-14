@@ -8,12 +8,7 @@
 use service\Bootstrap;
 
 include_once __DIR__ . '/vendor/autoload.php';
-include_once __DIR__ . '/sdk/Aliyun.php';
 
 define('APP_PATH', __DIR__);
 
-Bootstrap::start();
-
-$config = include __DIR__ . '/config/config.php';
-$aliyun = new Aliyun($config, $argv);
-$aliyun->init();
+Bootstrap::start($argv);
