@@ -10,7 +10,7 @@ PHP 5.3+ (Mac已默认安装PHP, Ubuntu用户请使用apt安装php: apt install 
 
 1.下载socks-proxy.phar
 
-[aliyun-ecs.zip](http://openpublic.oss-cn-shanghai.aliyuncs.com/2018/aliyun-ecs.zip)
+[socks-proxy.phar](http://openpublic.oss-cn-shanghai.aliyuncs.com/2018/socks-proxy.phar)
 
 2.配置阿里云key, secret 及 服务器默认ROOT密码
 
